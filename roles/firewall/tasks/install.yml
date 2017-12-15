@@ -1,0 +1,8 @@
+---
+- name: Installing yum firewalld package
+  package:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - firewalld
+  when: ansible_os_family == 'RedHat' and ansible_distribution_major_version == '7'

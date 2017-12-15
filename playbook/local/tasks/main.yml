@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+  - name: Create a empty file
+    command: touch /tmp/adfs
+  - name: Register a variable
+    command: ls -l /etc/
+    register: out
+  - debug: var=out.stdout_lines

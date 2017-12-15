@@ -1,0 +1,12 @@
+---
+- include: install.yml
+
+- name: Enable firewalld
+  service: name=firewalld state=started enabled=yes
+  
+- name: Set DMZ as default
+  command: sudo firewall-cmd --set-default-zone=dmz
+
+
+- name: allow https
+  command: sudo firewall-cmd --zone=dmz --permanent --add-service=https

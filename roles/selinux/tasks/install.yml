@@ -1,0 +1,8 @@
+---
+- name: Intslling Seliux
+  package:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - libselinux-python
+  when: ansible_os_family == 'RedHat'   
